@@ -169,3 +169,4 @@ bin/pytest
 bin/python
 bin/python3
 bin/python3.12
+bin/*
