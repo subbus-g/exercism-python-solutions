@@ -15,7 +15,12 @@ def square(number):
 
 # sum of series in gp,
 def total():
-    sum = 0
-    for i in range(1, 65):
-        sum += square(i)
+    # sum = 0
+    # for i in range(1, 65):
+    #     sum += square(i)
+    # return sum
+    a = 1
+    r = 2
+    n = 64
+    sum = a * (r**n - 1 // r - 1)
     return sum
