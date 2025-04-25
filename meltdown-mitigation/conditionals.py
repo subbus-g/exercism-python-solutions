@@ -52,20 +52,30 @@ def reactor_efficiency(voltage, current, theoretical_max_power):
     efficiency = (generated_power / theoretical_max_power) * 100
 
     efficiency_band = str()
-    if efficiency >= 80:
-        efficiency_band = "green"
-    # elif efficiency >= 60 and efficiency < 80:
+    # if efficiency >= 80:
+    #     efficiency_band = "green"
+    # # elif efficiency >= 60 and efficiency < 80:
+    # #     efficiency_band = "orange"
+    # # elif efficiency >= 30 and efficiency < 60:
+    # #     efficiency_band = "red"
+    # # elif efficiency < 30:
+    # #     efficiency_band = "black"
+    # elif 60 <= efficiency < 80:
     #     efficiency_band = "orange"
-    # elif efficiency >= 30 and efficiency < 60:
+    # elif 30 <= efficiency < 60:
     #     efficiency_band = "red"
     # elif efficiency < 30:
     #     efficiency_band = "black"
-    elif 60 <= efficiency < 80:
-        efficiency_band = "orange"
-    elif 30 <= efficiency < 60:
-        efficiency_band = "red"
-    elif efficiency < 30:
-        efficiency_band = "black"
+
+    match efficiency:
+        case value if value >= 80:
+            efficiency_band = "green"
+        case value if 60 <= value < 80:
+            efficiency_band = "orange"
+        case value if 30 <= value < 60:
+            efficiency_band = "red"
+        case value if value < 30 :
+            efficiency_band = "black"
 
     return efficiency_band
 
